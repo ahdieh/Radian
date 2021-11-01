@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Indicates generating Prisma Client
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures=["mongoDb"]
+}
+
+// specifies database connection
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// Defines Application Models
+model user {
+    _id String @id @default(uuid())
+    username String
+    password String
+}
